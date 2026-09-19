@@ -1,0 +1,21 @@
+# Credentials and tokens - NEVER commit these
+secrets.local.json
+xbox_tokens.json
+
+# Generated output
+output/
+output_selftest/
+*.log
+
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+.pytest_cache/
+.mypy_cache/
+
+# OS / editor
+.DS_Store
+.idea/
+.vscode/

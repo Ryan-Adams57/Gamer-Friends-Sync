@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  com.example.gamer-friends-sync.plist
+  launchd agent that runs the friends export daily at 08:00 local.
+
+  BEFORE USE, edit the two absolute paths marked EDIT-ME below:
+    1. The path to python3 (run `which python3` to confirm yours).
+    2. The full path to gamer_friends_sync.py.
+  Then set WorkingDirectory to the folder that holds the script, so it finds
+  secrets.local.json and writes output beside itself.
+
+  Secrets: keep them in secrets.local.json next to the script (recommended),
+  NOT in this file. This plist deliberately carries no tokens.
+
+  Install:
+    cp com.example.gamer-friends-sync.plist ~/Library/LaunchAgents/
+    launchctl load ~/Library/LaunchAgents/com.example.gamer-friends-sync.plist
+  Test now:
+    launchctl start com.example.gamer-friends-sync
+  Remove:
+    launchctl unload ~/Library/LaunchAgents/com.example.gamer-friends-sync.plist
+
+  Last Updated: 2026-09-18
+-->
+<plist version="1.0">
+<dict>
+    <key>Label</key>
+    <string>com.example.gamer-friends-sync</string>
+
+    <key>ProgramArguments</key>
+    <array>
+        <string>/usr/bin/python3</string><!-- EDIT-ME: `which python3` -->
+        <string>/path/to/GamerFriendsSync/gamer_friends_sync.py</string><!-- EDIT-ME -->
+    </array>
+
+    <key>WorkingDirectory</key>
+    <string>/path/to/GamerFriendsSync</string><!-- EDIT-ME: folder holding the script -->
+
+    <key>StartCalendarInterval</key>
+    <dict>
+        <key>Hour</key>
+        <integer>8</integer>
+        <key>Minute</key>
+        <integer>0</integer>
+    </dict>
+
+    <key>RunAtLoad</key>
+    <false/>
+
+    <key>StandardOutPath</key>
+    <string>/path/to/GamerFriendsSync/output/launchd.out.log</string><!-- EDIT-ME -->
+
+    <key>StandardErrorPath</key>
+    <string>/path/to/GamerFriendsSync/output/launchd.err.log</string><!-- EDIT-ME -->
+</dict>
+</plist>

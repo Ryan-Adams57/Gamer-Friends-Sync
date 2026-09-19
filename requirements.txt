@@ -1,0 +1,8 @@
+# Core HTTP client (used for Discord and pulled in by psnawp)
+requests>=2.31
+
+# PlayStation Network API wrapper (PlayStation friends)
+psnawp>=3.0
+
+# Xbox Live web API (Xbox friends, direct Microsoft auth)
+xbox-webapi>=2.1
