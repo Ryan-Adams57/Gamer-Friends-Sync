@@ -178,7 +178,7 @@ plist carries no tokens.
 ## Known limits
 
 - **PlayStation caps at 1000 friends** (the API's per-request limit). Above that,
-  the list is truncated at 1000.
+  only the first 1000 are returned.
 - **PlayStation is slow for large lists.** `psnawp` fetches each friend's profile
   individually and rate-limits itself, so a few hundred friends take a few
   minutes. The script prints progress and enforces a per-request timeout so it

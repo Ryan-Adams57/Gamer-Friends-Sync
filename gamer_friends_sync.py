@@ -198,7 +198,7 @@ def fetch_psn_friends(npsso: str) -> List[Dict[str, str]]:
       - a single unreadable profile is skipped, not fatal,
       - progress is printed so a large list does not look frozen, and
       - if the friend stream breaks partway, this RAISES rather than returning a
-        truncated list, because a partial list would look like mass unfriending
+        partial list, because that would look like mass unfriending
         to the change tracker and could wipe the last-known-good snapshot.
 
     Concurrency is deliberately not used: psnawp enforces its own rate limit
